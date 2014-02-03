@@ -7,9 +7,10 @@
     	  <input type="text" class="form-control" id="inputDisplayName" placeholder="<%= @user.name %>">
   	  </div>
 	  <div class="form-group">
-    	<label for="inputDisplayEmail">Name</label>
+    	<label for="inputDisplayEmail">Email</label>
     	<input type="text" class="form-control" id="inputDisplayEmail" placeholder="<%= @user.email %>">
   	  </div>
   	</fieldset>
   </form>
+  <%= link_to "Delete User Account", @user, method: :delete, class: "btn btn-danger", data: { confirm: "Delete this user account: Are you sure?" } %>
 </div>
