@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-gem 'pry'
 gem'bcrypt-ruby','3.1.2'
 
 # Use sqlite3 as the database for Active Record
@@ -33,6 +32,33 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+
+	# suppresses assets messages in console
+	gem 'quiet_assets'
+
+	# 
+	gem 'better_errors'
+
+	# adds console access in browser, at point of error
+	gem 'binding_of_caller'
+
+	# adds support for Chrome extension
+	gem 'meta_request'
+
+	# adds pry console debugging
+	gem 'pry'
+
+	# adds better formatting / printing of objects/variables
+	gem 'awesome_print'
+
+	# adds show model, and some object navigation (and some other stuff)
+	gem 'pry_rails'
+
+	# adds better breakpoint features, and more (see)
+	gem 'pry_byebug'
 end
 
 # Use ActiveModel has_secure_password

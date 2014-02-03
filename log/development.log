@@ -2487,3 +2487,212 @@ Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 13:42:46 
 
 
 Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-02-03 13:42:46 -0800
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 13:53:01 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1[0m
+  Rendered layouts/_nav_bar.html.erb (2.1ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1[0m
+  Rendered layouts/_nav_bar.html.erb (2.2ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:46 -0800
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1[0m
+  Rendered layouts/_nav_bar.html.erb (1.2ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-03 13:55:49 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 13:55:53 -0800
+Processing by SitesController#index as HTML
+  Rendered sites/index.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1
+  Rendered layouts/_nav_bar.html.erb (1.3ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 13:55:58 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1
+  Rendered layouts/_nav_bar.html.erb (1.6ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1
+  Rendered layouts/_nav_bar.html.erb (1.4ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-03 13:57:59 -0800
+
+
+Started GET "/users/3" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1
+  Rendered layouts/_nav_bar.html.erb (1.5ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-03 14:00:26 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-03 14:10:39 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SitesController#index as HTML
+  Rendered sites/index.html.erb within layouts/application (2.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'D6ATvwd-kqYQ6RO4L2M5Qw' LIMIT 1
+  Rendered layouts/_nav_bar.html.erb (61.5ms)
+Completed 200 OK in 831ms (Views: 809.4ms | ActiveRecord: 0.6ms)
