@@ -1,10 +1,5 @@
 Musiq::Application.routes.draw do
 
-  get "sessions/new"
-  get "sessions/destroy"
-  get "users/new"
-  get "users/show"
-  get "users/create"
 	# all standard Restful CRUD routes (listed example for examples, also includes users, sessions)
 	#      root GET       /                            examples#index
 	#     examples GET    /examples(.:format)          examples#index
