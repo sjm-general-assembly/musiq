@@ -1,16 +1,16 @@
 <h2>User Profile</h2>
 <div class='col-md-6'>
   <form role="form">
-	<fieldset disabled>
-	  <div class="form-group">
+	 <fieldset disabled>
+	    <div class="form-group">
     	  <label for="inputDisplayName">Name</label>
     	  <input type="text" class="form-control" id="inputDisplayName" placeholder="<%= @user.name %>">
-  	  </div>
-	  <div class="form-group">
+  	 </div>
+	   <div class="form-group">
     	<label for="inputDisplayEmail">Email</label>
     	<input type="text" class="form-control" id="inputDisplayEmail" placeholder="<%= @user.email %>">
-  	  </div>
-  	</fieldset>
+  	 </div>
+    </fieldset>
   </form>
   <%= link_to "Delete User Account", @user, method: :delete, class: "btn btn-danger", data: { confirm: "Delete this user account: Are you sure?" } %>
 </div>

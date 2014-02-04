@@ -20,5 +20,8 @@ Musiq::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   get'/signin' => 'sessions#new'
 
+  # route to add a song to a user from main site page
+  post '/add_song', to: 'sites#add_song'
+
 
 end

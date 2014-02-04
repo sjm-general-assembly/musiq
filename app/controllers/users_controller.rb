@@ -10,13 +10,11 @@ class UsersController < ApplicationController
   # GETs a form to edit user profile
   def edit
     @user = User.find(params[:id])
-    binding.pry
   end
 
   # GETs a form to create a new user
   def new
     @user = User.new()
-    binding.pry
   end
 
   # POSTs the results from new, creating a new user

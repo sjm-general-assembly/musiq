@@ -4,11 +4,28 @@
 	<%= image_tag 'music_note.png' %>
 <% else %>
 	<br>
-	<div class="form-group">
-      <label for="songSearch">Find a tune...</label>
-      <input type="text" class="form-control" id="songSearch" placeholder="Search... (by artist or song title)">
-  	</div>
+	<%= form_tag("/add_song", method: "post") do %>
+		<div class="form-group">
+  			<%= label_tag(:title, "Find a tune... (by title or artist)", ) %>
+  			<%= text_field_tag(:title, "", class: "form-control") %>
+  			<%= submit_tag("   Q it!   ", class: "btn btn-primary") %>
+  		</div>
+	<% end %>
 	<br>
 	<h3>My Q!</h3>
+	<div class='col-md-3'>
+    <table class='table table-striped'>
+		<tr>
+			<th>Title</th>
+			<th>Status</th>
+		</tr>
+   		<% @current_user.songs.each do |song| %>
+      		<tr>
+        		<td><%= song.title %></td>
+        		<td><%= song.status %></td>
+      		</tr>  
+    	<% end %>
+    </table>
 <% end %>
 </div>
+
