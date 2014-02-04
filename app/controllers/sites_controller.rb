@@ -1,7 +1,7 @@
 class SitesController < ApplicationController
   include SitesHelper
 
-  before_filter :check_admin, only: [:player]
+  before_filter :check_admin, only: [:player, :play_next]
 
 	# controls the music queues (listener and player)
 
@@ -11,8 +11,11 @@ class SitesController < ApplicationController
 
 	# GET display player page
 	def player
+		@current_track = Track.first
 		@tracks = Track.all
 	end
+
+	# 
 
 	# POSTs the results from adding a song to current user
   def add_song

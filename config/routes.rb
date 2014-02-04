@@ -21,6 +21,9 @@ Musiq::Application.routes.draw do
   # route to display player
   get '/player', to: 'sites#player'
 
+  # route to play next track in player queue
+  post '/play_next', to: 'sites#play_next'
+
 	# list routes for user login logout & sign up
 	get '/signup' => 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete
