@@ -55,10 +55,10 @@ group :development do
 	gem 'awesome_print'
 
 	# adds show model, and some object navigation (and some other stuff)
-	gem 'pry_rails'
+	gem 'pry-rails'
 
 	# adds better breakpoint features, and more (see)
-	gem 'pry_byebug'
+	gem 'pry-byebug'
 end
 
 # Use ActiveModel has_secure_password

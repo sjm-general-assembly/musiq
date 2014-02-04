@@ -1,4 +1,14 @@
-<h2>Q YOUR music!</h2>
-  <div class='col-md-12'>
-	Pay the Artist.
+<h2>Q <em>YOUR</em> music!</h2>
+<div class='col-md-12'>
+<% unless signed_in? %>
+	<%= image_tag 'music_note.png' %>
+<% else %>
+	<br>
+	<div class="form-group">
+      <label for="songSearch">Find a tune...</label>
+      <input type="text" class="form-control" id="songSearch" placeholder="Search... (by artist or song title)">
+  	</div>
+	<br>
+	<h3>My Q!</h3>
+<% end %>
 </div>
