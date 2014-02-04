@@ -2,7 +2,7 @@
 <%= form_tag("/play_next", method: "post") do %>
 	<fieldset disabled>
 		<div class="form-group">
-			<%= text_field_tag(:now_playing, "", class: "form-control") %>
+			<%= text_field_tag(:now_playing, @current_track, class: "form-control") %>
 		</div>
 	</fieldset>
 	<%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>

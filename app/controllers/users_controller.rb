@@ -22,7 +22,6 @@ class UsersController < ApplicationController
     new_user = params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
     new_user[:role] = 'listener'  # hard code role for now
     @user = User.new(new_user)
-    binding.pry
     if @user.save
       flash[:success] = "Welcome to MusiQ!"
       sign_in @user

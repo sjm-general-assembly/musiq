@@ -11,11 +11,34 @@ class SitesController < ApplicationController
 
 	# GET display player page
 	def player
-		@current_track = Track.first
+		@current_track = session[:current_track]
 		@tracks = Track.all
 	end
 
-	# 
+	# POST this method sets now playing track, to next track in the q, and removes from q
+	def play_next
+
+		# check to make sure there is at least one song in q to play
+		if Track.count >= 1
+			# set now playing track to next track in q
+			current_track = Track.first
+			session[:current_track], @current_track = current_track.title
+
+			# remove now playing track from q
+			current_track.destroy				# LATER, may want to archive this, move to a play history
+    else
+      flash[:error] = 'No music to play! Go gets some requests!'
+
+			# set now playing track to empty (this essentially ends the previously playing song)
+			session[:current_track], @current_track = ""
+		end
+
+		#show remaining tracks to play
+		@tracks = Track.all
+  
+  	# redisplay player page
+    redirect_to '/player'
+	end
 
 	# POSTs the results from adding a song to current user
   def add_song

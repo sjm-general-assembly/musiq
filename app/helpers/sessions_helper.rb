@@ -9,6 +9,9 @@ module SessionsHelper
     # This is an is an assignment, which we must define - see below
     # note that next line is a call to setter 'def current_user=(user)' below
     current_user = user
+
+    # when a user signs in, initialize current_track to empty string.
+    session[:current_track] = ""
   end
 
   def signed_in?
