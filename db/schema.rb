@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140204064834) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "songs", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140204064834) do
     t.string   "status"
   end
 
-  add_index "songs", ["user_id"], name: "index_songs_on_user_id"
+  add_index "songs", ["user_id"], name: "index_songs_on_user_id", using: :btree
 
   create_table "tracks", force: true do |t|
     t.string   "title"
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140204064834) do
     t.datetime "updated_at"
   end
 
-  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id"
+  add_index "tracks", ["user_id"], name: "index_tracks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -42,6 +45,6 @@ ActiveRecord::Schema.define(version: 20140204064834) do
     t.string   "role"
   end
 
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end
