@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204034525) do
+ActiveRecord::Schema.define(version: 20140204051910) do
 
   create_table "songs", force: true do |t|
     t.string   "title"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140204034525) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.string   "role"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
