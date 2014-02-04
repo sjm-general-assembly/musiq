@@ -14,18 +14,22 @@
 	<br>
 	<h3>My Q!</h3>
 	<div class='col-md-3'>
-    <table class='table table-striped'>
-		<tr>
-			<th>Title</th>
-			<th>Status</th>
-		</tr>
-   		<% @current_user.songs.each do |song| %>
-      		<tr>
-        		<td><%= song.title %></td>
-        		<td><%= song.status %></td>
-      		</tr>  
-    	<% end %>
-    </table>
+    	<table class='table table-striped'>
+			<tr>
+				<th>Title</th>
+				<th>Status</th>
+			</tr>
+   			<% @current_user.songs.each do |song| %>
+      			<tr>
+        			<td><%= song.title %></td>
+	        		<td><%= song.status %></td>
+    	  		</tr>  
+    		<% end %>
+    	</table>
+    </div>
 <% end %>
 </div>
 
+<script type="text/javascript" language="JavaScript">
+document.getElementById('title').focus();
+</script>

@@ -11,12 +11,17 @@ class SitesController < ApplicationController
 
 	# GET display player page
 	def player
+		@tracks = Track.all
 	end
 
 	# POSTs the results from adding a song to current user
   def add_song
+  	# add this song to the users personal list (history)
     new_song = Song.create(title: params[:title], status: "added to My Q!")
     current_user.songs << new_song
+
+    # add this song to the player queue (tracks)
+    Track.create(title: params[:title], user_id: current_user.id)
     redirect_to root_url
   end
 

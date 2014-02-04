@@ -14,6 +14,7 @@
 
 class User < ActiveRecord::Base
   has_many :songs, dependent: :destroy
+  has_many :tracks, dependent: :destroy
 
   has_secure_password
 
