@@ -1,7 +1,16 @@
 class SitesController < ApplicationController
+  include SitesHelper
+
+  before_filter :check_admin, only: [:player]
+
+	# controls the music queues (listener and player)
 
 	# home/index page GET, landing page
 	def index
+	end
+
+	# GET display player page
+	def player
 	end
 
 	# POSTs the results from adding a song to current user

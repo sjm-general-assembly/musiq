@@ -15,13 +15,17 @@ Musiq::Application.routes.draw do
   # create a route for root link, sending to main/home page (index)
   root to: 'sites#index'
 
+  # route to add a song to a user from main site page
+  post '/add_song', to: 'sites#add_song'
+
+  # route to display player
+  get '/player', to: 'sites#player'
+
 	# list routes for user login logout & sign up
 	get '/signup' => 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   get'/signin' => 'sessions#new'
 
-  # route to add a song to a user from main site page
-  post '/add_song', to: 'sites#add_song'
 
 
 end
