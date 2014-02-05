@@ -25,8 +25,13 @@ class SitesController < ApplicationController
 		now_playing_track = Track.find_by(status: 'now playing')
 		next_track = Track.find_by(status: 'waiting')
 
-		# remove now-playing track
+		# remove now-playing track(s)
 		unless now_playing_track.nil?
+			# remove the users songs from users song list
+			last_user_song = Song.find_by(title: now_playing_track.title, user_id: now_playing_track.user_id)
+			last_user_song.destroy unless last_user_song.nil?
+
+			# remove track from player list
 			now_playing_track.destroy  # TODO, (tbd) may want to archive this, move to a play history
 		end
 
@@ -34,6 +39,10 @@ class SitesController < ApplicationController
 		unless next_track.nil?
 			# set now-playing track to next track in q
 			next_track.update(status: 'now playing')
+
+			# update the user's song status
+			user_song = Song.find_by(title: next_track.title, user_id: next_track.user_id)
+			user_song.update(status: 'now playing') unless user_song.nil?
     else
       flash[:error] = 'No music to play! Go gets some requests!'
 		end
