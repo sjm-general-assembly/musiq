@@ -34,17 +34,10 @@ class SitesController < ApplicationController
 		unless next_track.nil?
 			# set now-playing track to next track in q
 			next_track.update(status: 'now playing')
-			@current_track = next_track.title
     else
       flash[:error] = 'No music to play! Go gets some requests!'
-
-			# set now playing track to empty (this essentially ends the previously playing song)
-			@current_track = ""
 		end
 
-		#show remaining tracks to play
-		@tracks = Track.where(status: 'waiting')
-  
   	# redisplay player page
     redirect_to '/player'
 	end
