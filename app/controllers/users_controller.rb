@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # POSTs the results from new, creating a new user
   def create
     new_user = params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
-    new_user[:role] = 'listener'  # hard code role for now
+    new_user[:role] = 'listener'  # TODO hard code role for now (change to enum, manage via UI)
     @user = User.new(new_user)
     if @user.save
       flash[:success] = "Welcome to MusiQ!"

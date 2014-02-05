@@ -11,30 +11,39 @@ class SitesController < ApplicationController
 
 	# GET display player page
 	def player
-		@current_track = session[:current_track]
-		@tracks = Track.all
+		# locate now-playing track
+		now_playing_track = Track.find_by(status: 'now playing')
+		now_playing_track.nil? ? @current_track = "" : @current_track = now_playing_track.title
+
+		#show remaining tracks to play
+		@tracks = Track.where(status: 'waiting')
 	end
 
 	# POST this method sets now playing track, to next track in the q, and removes from q
 	def play_next
+		# locate now-playing and next-playing tracks
+		now_playing_track = Track.find_by(status: 'now playing')
+		next_track = Track.find_by(status: 'waiting')
+
+		# remove now-playing track
+		unless now_playing_track.nil?
+			now_playing_track.destroy  # TODO, (tbd) may want to archive this, move to a play history
+		end
 
 		# check to make sure there is at least one song in q to play
-		if Track.count >= 1
-			# set now playing track to next track in q
-			current_track = Track.first
-			session[:current_track], @current_track = current_track.title
-
-			# remove now playing track from q
-			current_track.destroy				# LATER, may want to archive this, move to a play history
+		unless next_track.nil?
+			# set now-playing track to next track in q
+			next_track.update(status: 'now playing')
+			@current_track = next_track.title
     else
       flash[:error] = 'No music to play! Go gets some requests!'
 
 			# set now playing track to empty (this essentially ends the previously playing song)
-			session[:current_track], @current_track = ""
+			@current_track = ""
 		end
 
 		#show remaining tracks to play
-		@tracks = Track.all
+		@tracks = Track.where(status: 'waiting')
   
   	# redisplay player page
     redirect_to '/player'
@@ -43,11 +52,11 @@ class SitesController < ApplicationController
 	# POSTs the results from adding a song to current user
   def add_song
   	# add this song to the users personal list (history)
-    new_song = Song.create(title: params[:title], status: "added to My Q!")
+    new_song = Song.create(title: params[:title], status: "added to MusiQ!")
     current_user.songs << new_song
 
     # add this song to the player queue (tracks)
-    Track.create(title: params[:title], user_id: current_user.id)
+    Track.create(title: params[:title], user_id: current_user.id, status: 'waiting')
     redirect_to root_url
   end
 
