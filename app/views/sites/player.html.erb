@@ -1,8 +1,6 @@
 <h2>Now Playing...</h2>
     <!-- this div gets replace replaced with player iframe -->
-    <iframe id="player" type="text/html" width="512" height="312"
-  src="http://www.youtube.com/embed/?enablejsapi=1&origin=http://localhost"
-  frameborder="0"></iframe>
+    <div id="player"></div>
     <br>
     <button onclick="myButtonFunction()" class="btn btn-success">My Play</button>
 <%= form_tag("/play_next", method: "post") do %>
@@ -52,9 +50,9 @@
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-         // height: '390',   // included in iframe, when adding the element yourself
-         // width: '640',
-         // videoId: '',
+          height: '312',   // included in iframe, when adding the element yourself
+          width: '512',
+          videoId: 'oJ-M_8pY6TI',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -80,6 +78,6 @@
       }
 
       function myButtonFunction() {
-    //    player.loadVideoById({'videoId': '<%= @video_id %>'});
+        player.loadVideoById({'videoId': 'oShuuDsXHQE'});
       }
   </script>
