@@ -56,7 +56,10 @@
 
       // The API will call this function when the video player is ready.
       function onPlayerReady(event) {
-        event.target.playVideo();
+        // if default / please stand by video, don't start it, let it stay paused (so it's quiet)
+        <% if @current_track_video_id != 'Q98_0Af8tG8' %>  // TODO: should make this video id a constant
+          event.target.playVideo();
+        <% end %>
       }
 
       // The API calls this function when the player's state changes.
