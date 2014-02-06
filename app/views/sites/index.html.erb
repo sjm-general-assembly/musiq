@@ -1,23 +1,25 @@
 <h2>Q <em>YOUR</em> music!</h2>
-<div class='col-md-12'>
 <% unless signed_in? %>
 	<%= image_tag 'music_note.png' %>
 <% else %>
+<div class='col-md-6'>
 	<br>
 	<%= form_tag("/add_song", method: "post") do %>
 		<div class="form-group">
   			<%= label_tag(:title, "Find a tune... (by title or artist)", ) %>
   			<%= text_field_tag(:title, "", class: "form-control") %>
-  			<%= submit_tag("   Q it!   ", class: "btn btn-primary") %>
+  			<%= submit_tag("Search", class: "btn btn-primary") %>
   		</div>
 	<% end %>
-	<br>
-	<div class='col-md-2'>
+	<h4>Search Results...</h4>
+</div>
+<div class='col-md-6'>
+	<div class='col-md-3'>
 		<h3>My Q!</h3>
 	</div>
-	<div class='col-md-1'>
+	<div class='col-md-3'>
 		<br>
-    	<a class="btn btn-info" href="/">Refresh</a>
+    	<a class="btn btn-info" href="/">Update Status</a>
 	</div>	
 	<div class='col-md-12'>
     	<table class='table table-striped'>
@@ -33,8 +35,8 @@
     		<% end %>
     	</table>
     </div>
-<% end %>
 </div>
+<% end %>
 
 <script type="text/javascript" language="JavaScript">
 document.getElementById('title').focus();

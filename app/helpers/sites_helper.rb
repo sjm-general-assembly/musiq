@@ -11,4 +11,7 @@ module SitesHelper
 		end
 	end
 
+	def search_youtube_videos
+	end
+
 end
