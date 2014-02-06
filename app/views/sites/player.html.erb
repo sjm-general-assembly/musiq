@@ -3,7 +3,7 @@
     <!-- this div gets replace replaced with player iframe -->
     <div id="player"></div>
     <br>
-    <button onclick="myButtonFunction()" class="btn btn-success">My Play</button>
+    <br>
 	<%= form_tag("/play_next", method: "post") do %>
 	  <%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>
 	<% end %>
@@ -57,7 +57,7 @@
 
       // 4. The API will call this function when the video player is ready.
       function onPlayerReady(event) {
-       // event.target.playVideo();
+        event.target.playVideo();
       }
 
       // 5. The API calls this function when the player's state changes.
@@ -72,7 +72,4 @@
         player.stopVideo();
       }
 
-      function myButtonFunction() {
-        player.loadVideoById({'videoId': 'oShuuDsXHQE'});
-      }
   </script>
