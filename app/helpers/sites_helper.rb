@@ -34,6 +34,7 @@ module SitesHelper
 
 puts(' ')
 puts('  #################################### ')
+puts('  sesssion marker: ' + ENV['YT_API_KEY'])
 puts('  search string: ' + search_title)
 puts('  response code: ' + response.options[:response_code].to_s)
 puts('  #################################### ')
