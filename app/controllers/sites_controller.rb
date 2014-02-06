@@ -7,6 +7,14 @@ class SitesController < ApplicationController
 
 	# home/index page GET, landing page
 	def index
+  	# if there is a title to search for, get search results to display
+  	# NOTE this route/page can be arrived at from clicking search button on same page
+  	# or clicking the home link (which does not provide a title param)
+    @search_result_list = []
+    unless params[:title].nil?
+    	search_title = params[:title]
+    	search_for_songs(search_title, @search_result_list)
+    end
 	end
 
 	# GET display player page
@@ -50,17 +58,6 @@ class SitesController < ApplicationController
   	# redisplay player page
     redirect_to '/player'
 	end
-
-	# GET show results from song search
-  def search
-  	# add this song to the users personal list (history)
-    search_title = params[:title]
-    @search_result_list = []
-
-    search_for_songs(search_title, @search_result_list)
-
-    redirect_to root_url
-  end
 
 	# POSTs the results from adding a song to current user
   def add_song

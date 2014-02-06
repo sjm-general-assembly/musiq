@@ -4,14 +4,21 @@
 <% else %>
 <div class='col-md-6'>
 	<br>
-	<%= form_tag("/search", method: "get") do %>
+	<%= form_tag("/", method: "get") do %>
 		<div class="form-group">
   			<%= label_tag(:title, "Find a tune... (by title or artist)", ) %>
   			<%= text_field_tag(:title, "", class: "form-control") %>
   			<%= submit_tag("Search", class: "btn btn-primary") %>
   		</div>
 	<% end %>
-	<h4>Search Results...</h4>
+	<h4>Search Results...  (click song to Q it!)</h4>
+	<ul>
+	  <% unless @search_result_list.empty? %>
+	  	<% @search_result_list.each do |s| %>
+  			<li><a href='/player/<%= s[:video_id] %>'><%= s[:title] %></a></li>
+	  	<% end %>
+	  <% end %>
+	</ul>
 </div>
 <div class='col-md-6'>
 	<div class='col-md-3'>
