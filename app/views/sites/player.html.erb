@@ -1,26 +1,26 @@
-<h2>Now Playing...</h2>
+<div class='col-md-6'>
+	<h2>Now Playing...</h2>
     <!-- this div gets replace replaced with player iframe -->
     <div id="player"></div>
     <br>
     <button onclick="myButtonFunction()" class="btn btn-success">My Play</button>
-<%= form_tag("/play_next", method: "post") do %>
-	<fieldset disabled>
+	<%= form_tag("/play_next", method: "post") do %>
+	  <fieldset disabled>
 		<div class="form-group">
 			<%= text_field_tag(:now_playing, @current_track, class: "form-control") %>
 		</div>
-	</fieldset>
-	<%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>
-<% end %>
-<br>
-<br>
-<div class='col-md-1'>
+	  </fieldset>
+	  <%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>
+	<% end %>
+</div>
+<div class='col-md-6'>
+<div class='col-md-3'>
 	<h3>MusiQ!</h3>
 </div>
-<div class='col-md-1'>
+<div class='col-md-3'>
 	<br>
     <a class="btn btn-info" href="/player">Refresh</a>
 </div>
-<div class='col-md-12'>
    	<table class='table table-striped'>
 		<tr>
 			<th>Title</th>
