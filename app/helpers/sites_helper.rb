@@ -32,18 +32,19 @@ module SitesHelper
 		  # store result in a hash, for better parsing
 		  result_hash = JSON.parse(response.body)
 
-puts(' ')
-puts('  #################################### ')
-puts('  search string: ' + search_title)
-puts('  response code: ' + response.options[:response_code].to_s)
-puts('  full response: ' + response.inspect)
-puts('  #################################### ')
-puts(' ')
 
 		  if response.options[:response_code] == 200 && !result_hash.empty?
 		    result_hash["items"].each do |v| 
 		    	search_result_list << {:title => v["snippet"]["title"], :video_id => v["id"]["videoId"]} 
 		    end
+		  else
+				puts(' ')
+				puts('  #################################### ')
+				puts('  search string: ' + search_title)
+				puts('  response code: ' + response.options[:response_code].to_s)
+				puts('  response body: ' + response.options[:response_body].to_s)
+				puts('  #################################### ')
+				puts(' ')
 		  end
 		end
 	end

@@ -46,7 +46,7 @@
         player = new YT.Player('player', {
           height: '312',   // included in iframe, when adding the element yourself
           width: '512',
-          videoId: 'oShuuDsXHQE',
+          videoId: '<%= @current_track_video_id %>',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
