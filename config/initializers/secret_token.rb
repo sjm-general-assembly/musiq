@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Musiq::Application.config.secret_key_base = '4062d42d1f1f8a7b5fa292596df29e6bc50dbd5b92efce47ca6bf908b626b4a4ac9d978bb88f98bc824e0b6a84ccdbdd36ecec35ab0af9de892503a9d6c43a87'
+Musiq::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

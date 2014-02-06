@@ -61,7 +61,11 @@ group :development do
 	gem 'pry-byebug'
 end
 
+# for heroku install
 gem 'rails_12factor', group: :production
+
+# gem to pull secret token and apikeys from .env file / ENV
+gem 'dotenv-rails', :groups => [:development, :test]
 
 ruby "2.0.0"
 
