@@ -11,7 +11,7 @@ module SitesHelper
 		end
 	end
 
-	def search_youtube_videos
+	def search_for_songs(search_title, search_result_list)
 	end
 
 end

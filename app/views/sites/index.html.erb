@@ -4,7 +4,7 @@
 <% else %>
 <div class='col-md-6'>
 	<br>
-	<%= form_tag("/add_song", method: "post") do %>
+	<%= form_tag("/search", method: "get") do %>
 		<div class="form-group">
   			<%= label_tag(:title, "Find a tune... (by title or artist)", ) %>
   			<%= text_field_tag(:title, "", class: "form-control") %>

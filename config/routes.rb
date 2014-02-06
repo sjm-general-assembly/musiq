@@ -15,6 +15,9 @@ Musiq::Application.routes.draw do
   # create a route for root link, sending to main/home page (index)
   root to: 'sites#index'
 
+  # route for search list of songs selected cloud player
+  get '/search', to: 'sites#search'
+
   # route to add a song to a user from main site page
   post '/add_song', to: 'sites#add_song'
 

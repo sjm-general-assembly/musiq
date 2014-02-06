@@ -51,6 +51,17 @@ class SitesController < ApplicationController
     redirect_to '/player'
 	end
 
+	# GET show results from song search
+  def search
+  	# add this song to the users personal list (history)
+    search_title = params[:title]
+    @search_result_list = []
+
+    search_for_songs(search_title, @search_result_list)
+
+    redirect_to root_url
+  end
+
 	# POSTs the results from adding a song to current user
   def add_song
   	# add this song to the users personal list (history)
