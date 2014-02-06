@@ -32,7 +32,9 @@ module SitesHelper
 		  # store result in a hash, for better parsing
 		  result_hash = JSON.parse(response.body)
 
-		  if response.options[:response_code] == 200 && !result_hash.empty?
+binding.pry
+
+		  if response.options[:response_code] == '200' && !result_hash.empty?
 		    result_hash["items"].each do |v| 
 		    	search_result_list << {:title => v["snippet"]["title"], :video_id => v["id"]["videoId"]} 
 		    end
