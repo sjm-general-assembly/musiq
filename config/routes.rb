@@ -22,6 +22,7 @@ Musiq::Application.routes.draw do
   get '/player', to: 'sites#player'
 
   # route to play next track in player queue
+  get '/play_next', to: 'sites#play_next'
   post '/play_next', to: 'sites#play_next'
 
 	# list routes for user login logout & sign up

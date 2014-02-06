@@ -24,14 +24,14 @@ class SitesController < ApplicationController
 		now_playing_track.nil? ? @current_track_video_id = "" : @current_track_video_id = now_playing_track.video_id
 
 		#show remaining tracks to play
-		@tracks = Track.where(status: 'waiting')
+		@tracks = Track.where(status: 'waiting').order('created_at')
 	end
 
 	# POST this method sets now playing track, to next track in the q, and removes from q
 	def play_next
 		# locate now-playing and next-playing tracks
 		now_playing_track = Track.find_by(status: 'now playing')
-		next_track = Track.find_by(status: 'waiting')
+		next_track = Track.where(status: 'waiting').order('created_at').first
 
 		# remove now-playing track(s)
 		unless now_playing_track.nil?
