@@ -16,7 +16,7 @@ Musiq::Application.routes.draw do
   root to: 'sites#index'
 
   # route to add a song to a user from main site page
-  post '/add_song', to: 'sites#add_song'
+  get '/add_song', to: 'sites#add_song'
 
   # route to display player
   get '/player', to: 'sites#player'

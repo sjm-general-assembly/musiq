@@ -15,7 +15,7 @@
 	<ul>
 	  <% unless @search_result_list.empty? %>
 	  	<% @search_result_list.each do |s| %>
-  			<li><a href='/player/<%= s[:video_id] %>'><%= s[:title] %></a></li>
+  			<li><a href="/add_song?video_id=<%= s[:video_id] %>&amp;title=<%= s[:title] %>"><%= s[:title] %></a></li>
 	  	<% end %>
 	  <% end %>
 	</ul>

@@ -62,11 +62,11 @@ class SitesController < ApplicationController
 	# POSTs the results from adding a song to current user
   def add_song
   	# add this song to the users personal list (history)
-    new_song = Song.create(title: params[:title], status: "added to MusiQ!")
+    new_song = Song.create(title: params[:title], video_id: params[:video_id], status: "added to MusiQ!")
     current_user.songs << new_song
 
     # add this song to the player queue (tracks)
-    Track.create(title: params[:title], user_id: current_user.id, status: 'waiting')
+    Track.create(title: params[:title], video_id: params[:video_id], user_id: current_user.id, status: 'waiting')
     redirect_to root_url
   end
 

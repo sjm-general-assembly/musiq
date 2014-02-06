@@ -8,6 +8,7 @@
 #  updated_at :datetime
 #  user_id    :integer
 #  status     :string(255)
+#  video_id   :string(255)
 #
 
 class Song < ActiveRecord::Base

@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  status     :string(255)
+#  video_id   :string(255)
 #
 
 class Track < ActiveRecord::Base
