@@ -22,7 +22,7 @@ module SitesHelper
 		  response = Typhoeus.get("https://www.googleapis.com/youtube/v3/search",
 		    :params =>  {
 		                  :part => 'snippet',
-		                  :maxResults => '50',
+		                  :maxResults => '20',
 		                  :q => search_title,
 		                  :type => 'video',
 		                  :videoEmbeddable => 'true',
@@ -36,7 +36,7 @@ puts(' ')
 puts('  #################################### ')
 puts('  search string: ' + search_title)
 puts('  response code: ' + response.options[:response_code].to_s)
-puts('  some result: ' + result_hash["items"][0]["snippet"]["title"])
+puts('  full response: ' + response.inspect)
 puts('  #################################### ')
 puts(' ')
 
