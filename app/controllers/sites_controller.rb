@@ -21,7 +21,7 @@ class SitesController < ApplicationController
 	def player
 		# locate now-playing track
 		now_playing_track = Track.find_by(status: 'now playing')
-		now_playing_track.nil? ? @current_track = "" : @current_track = now_playing_track.title
+		now_playing_track.nil? ? @current_track_video_id = "" : @current_track_video_id = now_playing_track.video_id
 
 		#show remaining tracks to play
 		@tracks = Track.where(status: 'waiting')

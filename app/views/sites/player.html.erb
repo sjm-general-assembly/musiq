@@ -7,7 +7,7 @@
 	<%= form_tag("/play_next", method: "post") do %>
 	  <fieldset disabled>
 		<div class="form-group">
-			<%= text_field_tag(:now_playing, @current_track, class: "form-control") %>
+			<%= text_field_tag(:now_playing, @current_track_video_id, class: "form-control") %>
 		</div>
 	  </fieldset>
 	  <%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>
@@ -52,7 +52,7 @@
         player = new YT.Player('player', {
           height: '312',   // included in iframe, when adding the element yourself
           width: '512',
-          videoId: 'oJ-M_8pY6TI',
+          videoId: '<%= @current_track_video_id %>',
           events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
