@@ -1,74 +1,78 @@
+<div class='row'>
+  <div class='col-md-6'>
+  	<h2>Now Playing...</h2>
+      <!-- this div gets replace replaced with player iframe -->
+      <div id="player"></div>
+      <br>
+      <br>
+      <%= form_tag("/play_next", method: "post") do %>
+        <%= submit_tag("Play Next Song", class: "btn btn-lg btn-block btn-success") %>
+      <% end %>
+  </div>
 <div class='col-md-6'>
-	<h2>Now Playing...</h2>
-    <!-- this div gets replace replaced with player iframe -->
-    <div id="player"></div>
-    <br>
-    <br>
-	<%= form_tag("/play_next", method: "post") do %>
-	  <%= submit_tag("Play Next Song", class: "btn btn-lg btn-success") %>
-	<% end %>
-</div>
-<div class='col-md-6'>
-<div class='col-md-3'>
-	<h3>MusiQ!</h3>
-</div>
-<div class='col-md-3'>
-	<br>
-    <a class="btn btn-info" href="/player">Refresh</a>
-</div>
-   	<table class='table table-striped'>
-		<tr>
-			<th>Title</th>
-			<th>Submitted @</th>
-			<th>Submitted by</th>
-		</tr>
-		<% @tracks.each do |track| %>
-   			<tr>
-       			<td><%= track.title %></td>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>MusiQ!</h2>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-12'>
+   	  <table class='table table-striped'>
+    		<tr>
+          <th>Title</th>
+          <th>Submitted @</th>
+          <th>Submitted by</th>
+        </tr>
+        <% @tracks.each do |track| %>
+          <tr>
+            <td><%= track.title %></td>
        			<td><%= track.created_at %></td>
         		<td><%= track.user.name %></td>
-   	  		</tr>  
-   		<% end %>
-   	</table>
-</div>
-    <script>
-      // This code loads the IFrame Player API code asynchronously.
-      var tag = document.createElement('script');
-
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // This function creates an <iframe> (and YouTube player)
-      // after the API code downloads.
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-          height: '312',   // included in iframe, when adding the element yourself
-          width: '512',
-          videoId: '<%= @current_track_video_id %>',
-          events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-          }
-        });
-      }
-
-      // The API will call this function when the video player is ready.
-      function onPlayerReady(event) {
-        // if default / please stand by video, don't start it, let it stay paused (so it's quiet)
-        <% if @current_track_video_id != 'Q98_0Af8tG8' %>  // TODO: should make this video id a constant
-          event.target.playVideo();
+   	      </tr>  
         <% end %>
-      }
+   	  </table>
+      <a class="btn btn-info" href="/player">Refresh</a>
+    </div>
+  </div>
+</div>
+<script>
+  // This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
 
-      // The API calls this function when the player's state changes.
-      // The function indicates that when playing a video (state=1),
-      // or the player ended (state=0).
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.ENDED) {
-        	window.location.replace("/play_next");  // plays next track in queue
-        }
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // This function creates an <iframe> (and YouTube player)
+  // after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '312',   // included in iframe, when adding the element yourself
+      width: '512',
+      videoId: '<%= @current_track_video_id %>',
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
       }
+    });
+  }
+
+  // The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    // if default / please stand by video, don't start it, let it stay paused (so it's quiet)
+    <% if @current_track_video_id != 'Q98_0Af8tG8' %>  // TODO: should make this video id a constant
+      event.target.playVideo();
+    <% end %>
+  }
+
+  // The API calls this function when the player's state changes.
+  // The function indicates that when playing a video (state=1),
+  // or the player ended (state=0).
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+      window.location.replace("/play_next");  // plays next track in queue
+    }
+  }
       
-  </script>
+</script>
