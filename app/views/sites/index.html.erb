@@ -1,52 +1,73 @@
-<h2>Q <em>YOUR</em> music!</h2>
+<div class='row'>
+	<div class='col-sm-4'>
+		<h2>Q <em>YOUR</em> music!</h2>
+	</div>
+</div>
 <% unless signed_in? %>
-	<div class='container'>
-		<%= image_tag('music_note.png', :class => "img-responsive") %>
+	<br>
+	<br>
+	<div class='row'>
+		<div class='col-sm-3'>
+		</div>
+		<div class='col-sm-6'>
+			<%= image_tag('music_note.png', :class => "img-responsive") %>
+		</div>
 	</div>
 <% else %>
-<div class='col-md-6'>
-	<br>
-	<%= form_tag("/", method: "get") do %>
-		<div class="form-group">
-  			<%= label_tag(:title, "Find a tune... (by title or artist)", ) %>
-  			<%= text_field_tag(:title, "", class: "form-control") %>
-  			<%= submit_tag("Search", class: "btn btn-primary") %>
-  		</div>
-	<% end %>
-	<h4>Search Results...  (click song to Q it!)</h4>
-	<ul>
-	  <% unless @search_result_list.empty? %>
-	  	<% @search_result_list.each do |s| %>
-  			<li><a href="/add_song?video_id=<%= s[:video_id] %>&amp;title=<%= s[:title] %>"><%= s[:title] %></a></li>
-	  	<% end %>
-	  <% end %>
-	</ul>
-</div>
-<div class='col-md-6'>
-	<div class='col-md-3'>
-		<h3>My Q!</h3>
+	<div class='row'>
+		<div class='col-sm-6'>
+			<div class='row'>
+				<div class='col-sm-12'>
+					<h4>Find a tune... (by title or artist)</h4>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-sm-12'>
+					<%= form_tag("/", method: "get") do %>
+						<div class="form-group">
+	  						<%= text_field_tag(:title, "", class: "form-control") %>
+  						</div>
+						<%= submit_tag("Search", class: "btn btn-primary") %>
+					<% end %>
+  				</div>
+  			</div>
+  			<div class='row'>
+				<div class='col-sm-12'>
+					<h4>Search Results...  (click song to Q it!)</h4>
+					<ul>
+						<% unless @search_result_list.empty? %>
+	  						<% @search_result_list.each do |s| %>
+  								<li><a href="/add_song?video_id=<%= s[:video_id] %>&amp;title=<%= s[:title] %>"><%= s[:title] %></a></li>
+			  				<% end %>
+			  			<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class='col-sm-6'>
+			<div class='row'>
+				<div class='col-sm-4'><h4>My Q!</h4></div>
+			</div>
+			<div class='row'>
+				<div class='col-sm-12'>
+    				<table class='table table-striped'>
+						<tr>
+							<th>Title</th>
+							<th>Status</th>
+						</tr>
+   						<% @current_user.songs.order('created_at').each do |song| %>
+      						<tr>
+        						<td><%= song.title %></td>
+	        					<td><%= song.status %></td>
+    	  					</tr>  
+	    				<% end %>
+    				</table>
+					<a class="btn btn-sm btn-info" href="/">Update Status</a>
+    			</div>
+    		</div>
+		</div>
 	</div>
-	<div class='col-md-3'>
-		<br>
-    	<a class="btn btn-info" href="/">Update Status</a>
-	</div>	
-	<div class='col-md-12'>
-    	<table class='table table-striped'>
-			<tr>
-				<th>Title</th>
-				<th>Status</th>
-			</tr>
-   			<% @current_user.songs.order('created_at').each do |song| %>
-      			<tr>
-        			<td><%= song.title %></td>
-	        		<td><%= song.status %></td>
-    	  		</tr>  
-    		<% end %>
-    	</table>
-    </div>
-</div>
 <% end %>
-
 <script type="text/javascript" language="JavaScript">
-document.getElementById('title').focus();
+	document.getElementById('title').focus();
 </script>
