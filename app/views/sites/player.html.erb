@@ -1,22 +1,25 @@
 <div class='row'>
-  <div class='col-md-6'>
+  <div class='col-sm-6'>
   	<h2>Now Playing...</h2>
-      <!-- this div gets replace replaced with player iframe -->
-      <div id="player"></div>
-      <br>
-      <br>
+      <div class="flex-video">  <!-- REQUIRES responsive-video.css -->
+        <!-- <iframe id="player" type="text/html" src="https://www.youtube.com/embed/<%= @current_track_video_id %>?enablejsapi=1&origin=http://localhost" frameborder="0"></iframe> -->
+        <!-- this iframe should work per Google documentation. I was getting some JS warnings.
+              Note, one erro I did find/correct, was to use https instead of http.
+              that did load the onYouTubeIframeAPIReady, but not the others. -->
+        <div id="player"></div>
+      </div>
       <%= form_tag("/play_next", method: "post") do %>
         <%= submit_tag("Play Next Song", class: "btn btn-lg btn-block btn-success") %>
       <% end %>
   </div>
-<div class='col-md-6'>
+<div class='col-sm-6'>
   <div class='row'>
-    <div class='col-md-3'>
+    <div class='col-sm-3'>
       <h2>MusiQ!</h2>
     </div>
   </div>
   <div class='row'>
-    <div class='col-md-12'>
+    <div class='col-sm-12'>
    	  <table class='table table-striped'>
     		<tr>
           <th>Title</th>
@@ -48,8 +51,8 @@
   var player;
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-      height: '312',   // included in iframe, when adding the element yourself
-      width: '512',
+      //height: '312',   // dimensions set in iframe, when adding the element yourself
+      //width: '512',     // OR, when using response-video.css, not needed
       videoId: '<%= @current_track_video_id %>',
       events: {
         'onReady': onPlayerReady,
