@@ -1,6 +1,8 @@
 <h2>Q <em>YOUR</em> music!</h2>
 <% unless signed_in? %>
-	<%= image_tag 'music_note.png' %>
+	<div class='container'>
+		<img src="/assets/music_note.png" class="img-responsive"/>
+	</div>
 <% else %>
 <div class='col-md-6'>
 	<br>
