@@ -1,33 +1,35 @@
-<h2>User Profile</h2>
-<div class='col-md-6'>
-  <form role="form">
-	 <fieldset disabled>
-	    <div class="form-group">
-    	  <label for="inputDisplayName">Name</label>
-    	  <input type="text" class="form-control" id="inputDisplayName" placeholder="<%= @user.name %>">
-  	 </div>
-	   <div class="form-group">
-    	<label for="inputDisplayEmail">Email</label>
-    	<input type="text" class="form-control" id="inputDisplayEmail" placeholder="<%= @user.email %>">
-  	 </div>
-    </fieldset>
-  </form>
-  <%= link_to "Delete User Account", @user, method: :delete, class: "btn btn-danger", data: { confirm: "Delete this user account: Are you sure?" } %>
+<div class='row'>
+  <div class='col-sm-6'>
+    <h2>User Profile</h2>
+    <form role="form">
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="inputDisplayName">Name</label>
+          <input type="text" class="form-control" id="inputDisplayName" placeholder="<%= @user.name %>">
+        </div>
+        <div class="form-group">
+          <label for="inputDisplayEmail">Email</label>
+          <input type="text" class="form-control" id="inputDisplayEmail" placeholder="<%= @user.email %>">
+        </div>
+      </fieldset>
+    </form>
+    <%= link_to "Delete User Account", @user, method: :delete, class: "btn btn-danger", data: { confirm: "Delete this user account: Are you sure?" } %>
+  </div>
 </div>
 <div class='row'>
-<h3>Cloud Player Accounts</h3>
-<div class='col-md-6'>
-  <form role="form">
-  <fieldset disabled>
-    <div class="form-group">
-        <label for="inputDisplayName">Google Player Login</label>
-        <input type="text" class="form-control" id="inputDisplayLogin" placeholder="">
-      </div>
-    <div class="form-group">
-      <label for="inputDisplayEmail">Google Player Password</label>
-      <input type="text" class="form-control" id="inputDisplayPassword" placeholder="">
-      </div>
-    </fieldset>
-  </form>
-</div>
+  <div class='col-sm-6'>
+    <h4>Cloud Player Accounts</h4>
+    <form role="form">
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="inputDisplayName">Google Player Login</label>
+          <input type="text" class="form-control" id="inputDisplayLogin" placeholder="">
+        </div>
+        <div class="form-group">
+          <label for="inputDisplayEmail">Google Player Password</label>
+          <input type="text" class="form-control" id="inputDisplayPassword" placeholder="">
+        </div>
+      </fieldset>
+    </form>
+  </div>
 </div>
